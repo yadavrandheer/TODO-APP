@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <head>
+                <title>
+                    <%= locals.title%>
+                </title>
+                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <link rel="stylesheet" href="/css/home.css">
+             <style>
+                    	div {
+                                width:115px; 
+                                overflow:hidden; 
+                                border:0px solid #f00;
+                                text-overflow:initial;
+                                white-space:nowrap;
+                                
+                            }
+             </style> 
+     </head>
+    <body>
+       <center>
+                <form action="/create-todo-item" method="POST" style="background-color: rgb(83, 88, 88);width: 60%;border-radius: 5px;">
+                   <br>
+                 <table height="auto" width="70%" style="border-radius: 5px; background-color: #ffffffec;padding: 20px;">
+                        <th colspan="2"><h1>TODO App</h1></th>
+                           <tr>
+                                        <td colspan="2">
+                                                <label>DESCRIPTION</label>
+                                                <br> <input type="text" name="name" placeholder="what do you want to do ?"
+                                                    style="width:95%" class="input"  required>
+                                        </td>
+                            </tr>
+                            <tr>
+                                        <td>
+                                            <label>CATEGORY</label>
+                                            
+                                            <select name="category"  class="input" style="width:95%">
+                                                <option  selected>Select a Option   </option>
+                                                <option >Personal</option>
+                                                <option >Work</option>
+                                                <option >School</option>
+                                                <option >Cleaning</option>
+                                                <option >Journey</option>
+                                                <option >Others</option>
+                                            </select>
+                                        </td>
+                                        <td>  	
+                                           <label>DUE DATE</label>
+                                           <input type="date" name="date" style="width:90%" class="input">
+                                        </td>        
+                            </tr>
+                            <tr>
+                                        <td colspan="2"><button type="submit"   class="button" >
+                                             <span class="fa fa-plus" style="font-size:25px;color:white"></span>ADD Task</button>
+                                        </td>
+                            </tr>
+
+                        </table>
+                    <br>
+                <table height="auto" width="80%" style="border-radius: 5px; background-color: #ffffffec; padding: 10px;">        
+                         <%let j=1%>
+                         <% for (let i of item_list) { %> 
+                             <tr class="noBorder">  
+                                       <td>
+                                             <p><%=j%>.</p>
+                                        </td>
+                                        <td> 
+                                         <span><p id=contactList><%= i.name %></p></span>
+                                         
+                                            <%switch(i.date)
+                                            {
+                                                case null:%><div><b>No DeadLine</b></div><%break;%>
+                                                <% default:%><div><b> <%= i.date %></b></div><%break;%>
+                                           <% }%>
+                                        </td>
+                                          
+                                    <td>
+                                        <%switch(i.category)
+                                        {
+                                            case "Personal":%><p class="button1" style="background-color:rgb(185, 48, 48);"><%= i.category %></p><%break%>
+                                            <% case "Work":%><p class="button1" style="background-color:hotpink;"><%= i.category %></p><%break%>
+                                            <% case "School":%><p class="button1" style="background-color:green;"><%= i.category %></p><%break%>
+                                            <% case "Cleaning":%><p class="button1" style="background-color:navy;"><%= i.category %></p><%break%>
+                                            <% case "Others":%><p class="button1" style="background-color:rgba(105, 12, 43, 0.835);"><%= i.category %></p><%break%>
+                                            <% case "Journey":%><p class="button1" style="background-color:rgb(29, 4, 29)"><%= i.category %></p><%break%>
+                                            <% case "Select a Option":%><p></p><%break%>
+                                        <%}%>
+                                    </td>
+                                     
+                                     <td> <p>
+                                         <a href="/delete-todolist-item/?id=<%= i._id %>">
+                                         <span  class="fa fa-trash-o" style="font-size:30px;color:rgb(201, 68, 68) ;margin-top: 10px;"tooltip="delete"></span>
+                                         </a>
+                                         </p>
+                                         </td>  
+                            </tr> 
+                            <%j++%>
+                        <% } %>
+                </table>
+                <br>
+                <br>
+             </form>  
+        </center>  
+    </body>
+</html>

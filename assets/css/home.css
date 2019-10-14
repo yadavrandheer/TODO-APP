@@ -1,0 +1,78 @@
+body{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contactList
+{
+    
+    font-style: normal;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1px;
+    margin-top:2px ;
+}
+
+.input{
+
+    padding: 12px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid gray;
+  }
+  
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    margin-left: 30%;
+    margin-bottom: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+
+  }
+  
+  .button:hover {background-color: #3e8e41}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 3px #666;
+    transform: translateY(4px);
+  }
+  
+  
+  
+  .button1 {
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: auto;
+    width:30%;
+    margin-left: 15%;
+  }
+
+  table, tr, td { 
+    border:0px; 
+   }
+   tr.noBorder td {
+       border-top: 1px  rgb(19, 18, 18) solid;
+     border-bottom:gray 0px solid;
+     margin: 0px;
+     background-color: white;
+     padding: inherit;
+   }
+ 
